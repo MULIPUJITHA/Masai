@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive DOM Manipulation</title>
+  <style>
+    #dynamic-div {
+      width: 300px;
+      height: 200px;
+      border: 1px solid black;
+      text-align: center;
+      line-height: 200px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive DOM Manipulation</h1>
+  <label for="color-input">Enter Background Color:</label>
+  <input type="text" id="color-input" placeholder="e.g., red, blue, #123456">
+  <button id="change-bg-btn">Change Background</button>
+  <br><br>
+  <label for="text-input">Enter Text Content:</label>
+  <input type="text" id="text-input" placeholder="Type your text here">
+  <button id="update-text-btn">Update Text</button>
+  <div id="dynamic-div">Initial Content</div>
+  <script src="script3.js"></script>
+</body>
+</html>
