@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save and Load User Notes</title>
+</head>
+<body>
+  <textarea id="notes" placeholder="Enter your notes here..." rows="10" cols="50"></textarea>
+  <br>
+  <button id="save-notes">Save Notes</button>
+  <button id="load-notes">Load Notes</button>
+  <button id="clear-notes">Clear Notes</button>
+
+  <script>
+    // Select the text area and buttons
+    const notesArea = document.getElementById('notes');
+    const saveButton = document.getElementById('save-notes');
+    const loadButton = document.getElementById('load-notes');
+    const clearButton = document.getElementById('clear-notes');
+
+    // Load notes from localStorage on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedNotes = localStorage.getItem('userNotes');
+      if (savedNotes) {
+        notesArea.value = savedNotes; // Display saved notes in the text area
+      }
+    });
+
+    // Save notes to localStorage
+    saveButton.addEventListener('click', () => {
+      const notes = notesArea.value.trim(); // Get trimmed value from the text area
+      if (notes) {
+        localStorage.setItem('userNotes', notes); // Save notes to localStorage
+        alert('Notes saved successfully!');
+      } else {
+        alert('Cannot save empty notes.');
+      }
+    });
+
+    // Load notes from localStorage
+    loadButton.addEventListener('click', () => {
+      const savedNotes = localStorage.getItem('userNotes');
+      if (savedNotes) {
+        notesArea.value = savedNotes; // Display saved notes in the text area
+        alert('Notes loaded successfully!');
+      } else {
+        alert('No notes found to load.');
+      }
+    });
+
+    // Clear notes from localStorage
+    clearButton.addEventListener('click', () => {
+      localStorage.removeItem('userNotes'); // Remove notes from localStorage
+      notesArea.value = ''; // Clear the text area
+      alert('Notes cleared successfully!');
+    });
+  </script>
+</body>
+</html>
